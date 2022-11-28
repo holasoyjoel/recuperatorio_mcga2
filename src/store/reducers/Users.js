@@ -9,22 +9,28 @@ export const userSlice =  createSlice({
     name:"users",
     initialState:{
         error:false,
-        cant: 0,
         usuarios: []
     },
     reducers:{
-        getUsers: async(state)=>{
-
-            const resp = await fetch("http://localhost:3001/users")
-            const data = await resp.json();
-            console.log("data",data)
-            
-            state.error = data.error;
-            state.cant = data.cant;
-            state.usuarios = data.usuarios;
-        
+        getUsers: (state , action)=>{   
+            state.error = action.payload.error;
+            state.usuarios = action.payload.usuarios;
+        },
+        getUser : (state, action)=>{
+            state.error = action.payload.error;
+            state.usuarios = action.payload.usuarios;
+        },
+        postUser : (state , action)=>{
+            state.error = action.payload.error;
+            state.usuarios.push(action.payload.usuarios)
+        },
+        putUser : (state,action)=>{
+            console.log("put", action.payload);
+        },
+        deleteUser : (state, action)=>{
+            console.log("usuario eliminado");
         }
     }
 })
 
-export const {getUsers} = userSlice.actions;
+export const {getUsers , getUser , postUser, putUser, deleteUser} = userSlice.actions;

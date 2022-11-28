@@ -74,5 +74,6 @@ export const deleteUserThunk = (id)=>{
         console.log("data delete" , data)
         dispatch(deleteUser());
         dispatch(getUsersThunk());
+        
     }
 }

@@ -25,6 +25,7 @@ export const getUserThunk = (id)=>{
 }
 
 export const postUserThunk = (body)=>{
+    console.log("body" , body)
     return async(dispatch)=>{
         const configPost = {
             method: 'POST',

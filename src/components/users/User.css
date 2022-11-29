@@ -1,0 +1,73 @@
+h3{
+    margin-bottom:10px;
+}
+.link .btnNuevoUsuario{ 
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #662938;
+    color:white;
+    width: 100px;
+    /* height: 50px; */
+    position: absolute;
+    top: 80%;
+    left: 90%;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+
+.userContainer{
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+}
+
+table{
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+table thead{
+    background-color:  #a8a8a8;
+    color: rgb(53, 53, 53);
+}
+
+th{
+   width: 120px; 
+   text-align:center;
+}
+
+tr{
+    height: 30px;
+}
+td{
+    text-align: center;
+}
+
+tbody tr:hover{
+    background-color: rgb(206, 253, 255);
+}
+
+.btnEditarUsuario{
+    background-color: #f4ff1a;
+    border:none;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.btnEditarUsuario .link{
+    text-decoration: none;
+    color: black;
+}
+
+.btnEliminarUser{
+    background-color: #f00909;
+    border:none;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}

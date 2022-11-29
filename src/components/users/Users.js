@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteUserThunk, getUsersThunk, getUserThunk, postUserThunk, putUserThunk } from "../../store/reducers/thunk";
+import './User.css'
 import {
     BrowserRouter as Router,
     Switch,
@@ -17,14 +18,15 @@ const Users = ()=>{
     } , [])
 
     return(
-        <div>
+        <div className="userContainer">
 
-            <h1>
-                cantidad de usuarios: 
+            <h3>
+                cantidad de usuarios: {user.usuarios.length}
                 {/* <button onClick={()=>dispatch(postUserThunk(nuevoUsuario))}>Nuevo Usuario</button> */}
-            </h1>
+            </h3>
+            
 
-            <table>
+            <table className="tableUser">
                 <thead>
                     <tr>
                         <th>Apellido</th>
@@ -43,7 +45,8 @@ const Users = ()=>{
                         user.usuarios.map(usuario=>{
                             return(
                                 <tr key={usuario.id}>
-                                    <td onClick={()=>dispatch(getUserThunk(usuario.id))}>{usuario.apellido}</td>
+                                    {/* <td onClick={()=>dispatch(getUserThunk(usuario.id))}>{usuario.apellido}</td> */}
+                                    <td>{usuario.apellido}</td>
                                     <td>{usuario.nombre}</td>
                                     <td>{usuario.fechaNacimiento}</td>
                                     <td>{usuario.dni}</td>
@@ -51,22 +54,27 @@ const Users = ()=>{
                                     <td>{usuario.nacionalidad}</td>
                                     <td>{usuario.email}</td>
                                     <td>
-                                        <Link to={`/editUser/${usuario.id}`} className='link'>
-                                            Editar
+                                        <button className="btnEditarUsuario">
+                                            <Link to={`/editUser/${usuario.id}`} className='link'>
+                                                Editar
                                             {/* <button onClick={()=>dispatch(putUserThunk(usuario.id , editarUsuario))}>Editar</button> */}
-                                        </Link>
+                                            </Link>
+                                        </button>
                                     </td>
                                     <td>
-                                        <button onClick={()=>dispatch(deleteUserThunk(usuario.id))}>Eliminar</button>
+                                        <button className="btnEliminarUser" onClick={()=>dispatch(deleteUserThunk(usuario.id))}>Eliminar</button>
                                     </td>
                                 </tr>
                             )
                         })
                     }
-                    <></>
                 </tbody>
             </table>
-
+                <Link to="/newUser" className='link'>
+                    <button className="btnNuevoUsuario">
+                        Nuevo Usuario
+                    </button>
+                </Link>
         </div>
     )
 }

@@ -8,7 +8,8 @@ import {
   } from "react-router-dom";
 import Home from '../home/Home';
 import Users from '../users/Users';
-import Formulario from '../shared/formulario/Formulario';
+import NuevoUser from '../NuevoUser/NuevoUser';
+import EditUser from '../EditUser/EditUser';
 
 
 const Layout = () =>{
@@ -30,7 +31,8 @@ const Layout = () =>{
                 <Routes>
                     <Route path="/home" element={<Home />}></Route>
                     <Route path="/users" element={<Users />}></Route>
-                    <Route path="/editUser/:id" element={<Formulario />}></Route>
+                    <Route path="/newUser" element={<NuevoUser />}></Route>
+                    <Route path="/editUser/:id" element={<EditUser />}></Route>
                     <Route path="/" element={<Home />}></Route>
                 </Routes>           
             </main>

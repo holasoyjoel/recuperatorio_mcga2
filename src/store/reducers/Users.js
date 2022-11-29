@@ -25,10 +25,8 @@ export const userSlice =  createSlice({
             state.usuarios.push(action.payload.usuarios)
         },
         putUser : (state,action)=>{
-            console.log("put", action.payload);
         },
         deleteUser : (state, action)=>{
-            console.log("usuario eliminado");
         }
     }
 })

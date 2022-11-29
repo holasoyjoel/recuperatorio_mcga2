@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# SISTEMA DE MCGA
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Nuestro sistema de MCGA, es una web app que nos permite navegar entre dos layouts (' **HOME** ' y ' **USERS** ') permitiendonos realizar acciones de **ABM** para nuestros users.
+***
+## Layouts
+Detallando layouts:
 
-## Available Scripts
+`HOME` : Este layout nos muestra el nomre de nuestro sistema junto ocn el nombre del alumno que lo desarrollo.
 
-In the project directory, you can run:
+`USERS` : Este layout nos muestra una tabla con todos nuestros usuarios guardados en base de datos, dichos datos son visualizados a traves de una tabla, lo cual, nos permite ver las distintas propiedades de nuestros usuarios junto con dos botones (EDITAR / ELIMINAR) para poder interactuar con ellos, Además, también se encuentra un boton de 'Nuevo Usuario', permitiendonos crear nuevos registros para ser guardados en la base de datos. 
 
-### `npm start`
+Dichos botones nombrados anteriormentes nos permiten realizar las siguientes acciones:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+`Nuevo Usuario` : Al hacer click sobre este boton, nos redirige hacia **http://localhost:3000/newUser** , aqui se abre una nueva pantalla con un formulario para poder cargar los datos del nuevo usuario.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+`Editar`: Al hacer click sobre este boton, nos redirige hacia **http://localhost:3000/editUser/:id** pasandole como parametro el ID del usuario a editar.
 
-### `npm test`
+`Eliminar`: Al hacer click sobre este boton nos eliminará el usuario seleccionado.
+***
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Para instalar las dependencias necesarias para este proyecto, favor de ejecutar 
+~~~
+npm install
+~~~
 
-### `npm run build`
+## Tecnologías utilizadas:
+1. [**React**]("https://es.reactjs.org") - biblioteca de javascript para construir interfaces de usuario.
+2. [**React Router Dom**]("https://reactrouter.com") - librería que nos facilita el proceso de definir rutas de navegación de nuestra aplicación.
+3. [**React Redux**]("https://es.redux.js.org") - librearía para el manejo del estado de nuestras aplicaciones.
+4. [**Redux Toolkit**]("https://redux-toolkit.js.org") - librería que nos permite un desarrollo más eficiente de redux
+5. [**React Hook Form**]("https://react-hook.form.com") - librearía que nos permite independizar todo cambio que pueda producirse en cada unos de los elementos de nuestros formulario.  
+6. [**Redux Thunk**]("https://redux.js.org/usage/writing-logic-thunk") - librearía que nos permite realizar operaciones asincronas en nuestra aplicación.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+***
+Los siguientes endpoints son llamados desde el sistema mcga:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* `[GET]` http://localhost:3001/users (obtener todos los usuarios)
+* `[GET]` http://localhost:3001/users/user/:id (obtener un usuario según id)
+* `[POST]`http://localhost:3001/users/user (crear usuario)
+* `[PUT]` http://localhost:3001/users/user/${id} (editar usuario según id)
+* `[DELETE]` http://localhost:3001/users/user/${id} (eliminar usuario según id)

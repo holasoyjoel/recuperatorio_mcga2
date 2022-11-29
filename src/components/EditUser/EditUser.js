@@ -34,7 +34,6 @@ const EditUser = () => {
     let { id } = useParams(); 
     useEffect(()=>{
         dispatch(getUserThunk(id))
-        // console.log(watch("apellido"))
     },[])
     const {user} = useSelector((state) => state)
     
@@ -62,7 +61,6 @@ const EditUser = () => {
 
     
     const onSubmit = (data) =>{ 
-        console.log(data)
         dispatch(putUserThunk(id ,data));
         setTimeout(()=>{
             window.location.replace("/users")

@@ -25,7 +25,6 @@ export const getUserThunk = (id)=>{
 }
 
 export const postUserThunk = (body)=>{
-    console.log("body" , body)
     return async(dispatch)=>{
         const configPost = {
             method: 'POST',
@@ -62,7 +61,6 @@ export const putUserThunk = (id,body)=>{
 }
 
 export const deleteUserThunk = (id)=>{
-    console.log("eliminado usuario:" , id)
     return async(dispatch)=>{
         const configDelete = {
             method: 'DELETE',
@@ -72,7 +70,6 @@ export const deleteUserThunk = (id)=>{
         }
         const resp = await fetch(`http://localhost:3001/users/user/${id}` , configDelete)
         const data = await resp.json();
-        console.log("data delete" , data)
         dispatch(deleteUser());
         dispatch(getUsersThunk());
         

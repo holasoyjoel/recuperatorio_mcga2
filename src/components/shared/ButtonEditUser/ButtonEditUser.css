@@ -1,0 +1,11 @@
+.btnEditarUsuario{
+    background-color: #f4ff1a;
+    border:none;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.btnEditarUsuario .link{
+    text-decoration: none;
+    color: black;
+}

@@ -1,0 +1,16 @@
+.btnCancelar{
+    background-color: #f00909;
+    border:none;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.btnCancelar .link{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}

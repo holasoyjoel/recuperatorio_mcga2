@@ -1,17 +1,14 @@
 import { useForm } from "react-hook-form";
 import './EditUser.css';
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Routes,
-    Link,
     useParams
   } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserThunk, postUserThunk, putUserThunk } from "../../store/reducers/thunk";
 import { useEffect, useState } from "react";
 import Inputs from "../shared/Inputs/Inputs";
+import ButtonSubmit from "../shared/ButtonSubmit/ButtonSubmit";
+import ButtonCancelar from "../shared/ButtonCancelar/ButtonCancelar";
 
 
 
@@ -88,15 +85,13 @@ const EditUser = () => {
                     })
                 }
                 <div>
-                    <button className="btnAgregar" type="submit">
-                            Agregar
-                    </button>
-
-                    <button className="btnCancelar">
+                    <ButtonSubmit type={"submit"} value={"Agregar"}/>
+                    {/* <button className="btnCancelar">
                         <Link to="/users" className='link'>
                             Cancelar
                         </Link>
-                    </button>
+                    </button> */}
+                    <ButtonCancelar value={"cancelar"} urlRedirect={"/users"}/>
                 </div>
             </form>
         </div>

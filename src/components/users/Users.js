@@ -9,6 +9,9 @@ import {
     Routes,
     Link
   } from "react-router-dom";
+import ButtonDeleteUser from "../shared/ButtonDeleteUser/ButtonDeleteUser";
+import ButtonEditUser from "../shared/ButtonEditUser/ButtonEditUser";
+import ButtonNewUser from "../shared/ButtonNewUser/ButtonNewUser";
 
 const Users = ()=>{
     const {user} = useSelector((state) => state)
@@ -54,15 +57,16 @@ const Users = ()=>{
                                     <td>{usuario.nacionalidad}</td>
                                     <td>{usuario.email}</td>
                                     <td>
-                                        <button className="btnEditarUsuario">
+                                        {/* <button className="btnEditarUsuario">
                                             <Link to={`/editUser/${usuario.id}`} className='link'>
                                                 Editar
-                                            {/* <button onClick={()=>dispatch(putUserThunk(usuario.id , editarUsuario))}>Editar</button> */}
                                             </Link>
-                                        </button>
+                                        </button> */}
+                                        <ButtonEditUser value={"Editar"} urlRedirect={`/editUser/${usuario.id}`}/>
                                     </td>
                                     <td>
-                                        <button className="btnEliminarUser" onClick={()=>dispatch(deleteUserThunk(usuario.id))}>Eliminar</button>
+                                        {/* <button className="btnEliminarUser" onClick={()=>dispatch(deleteUserThunk(usuario.id))}>Eliminar</button> */}
+                                        <ButtonDeleteUser value={"Eliminar"} onClick={deleteUserThunk(usuario.id)}/>
                                     </td>
                                 </tr>
                             )
@@ -70,11 +74,13 @@ const Users = ()=>{
                     }
                 </tbody>
             </table>
-                <Link to="/newUser" className='link'>
-                    <button className="btnNuevoUsuario">
+                    {/* <button className="btnNuevoUsuario">
+                        <Link to="/newUser" className='link'>
                         Nuevo Usuario
-                    </button>
-                </Link>
+                        </Link>
+                    </button> */}
+                    <ButtonNewUser value={"Nuevo Usuario"} urlRedirect={"/newUser"}/>
+
         </div>
     )
 }

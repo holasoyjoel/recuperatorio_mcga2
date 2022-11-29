@@ -1,22 +1,6 @@
 h3{
     margin-bottom:10px;
 }
-.link .btnNuevoUsuario{ 
-    padding: 5px;
-    border: none;
-    border-radius: 5px;
-    background-color: #662938;
-    color:white;
-    width: 100px;
-    /* height: 50px; */
-    position: absolute;
-    top: 80%;
-    left: 90%;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    cursor: pointer;
-}
 
 
 
@@ -52,22 +36,4 @@ tbody tr:hover{
     background-color: rgb(206, 253, 255);
 }
 
-.btnEditarUsuario{
-    background-color: #f4ff1a;
-    border:none;
-    border-radius: 5px;
-    padding: 5px;
-}
 
-.btnEditarUsuario .link{
-    text-decoration: none;
-    color: black;
-}
-
-.btnEliminarUser{
-    background-color: #f00909;
-    border:none;
-    border-radius: 5px;
-    padding: 5px;
-    cursor: pointer;
-}

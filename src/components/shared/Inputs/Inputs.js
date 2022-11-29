@@ -1,9 +1,9 @@
 
 
-const Inputs = ({defaultValue , name , placeholder ,  required})=>{
+const Inputs = ({ name , placeholder ,  required , register})=>{
     return(
         <>
-            <input value={defaultValue} name={name} placeholder={placeholder} {...register(name , {required})} />
+            <input name={name} placeholder={placeholder} {...register(name , {required})} />
         </>
     )
 }

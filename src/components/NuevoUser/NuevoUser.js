@@ -9,10 +9,24 @@ import {
   } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { postUserThunk } from "../../store/reducers/thunk";
+import Inputs from "../shared/Inputs/Inputs";
+
+
+const inputs = [
+    {id:1 , label:"Apellido" , name:"apellido"},
+    {id:2 , label:"Nombre" , name:"nombre"},
+    {id:3 , label:"Fecha Nacimiento" , name: "fechaNacimiento"},
+    {id:4 , label:"Dni" , name:"dni"},
+    {id:5 , label:"Edad" , name:"edad"},
+    {id:6 , label:"Nacionalidad" , name:"nacionalidad"},
+    {id:7 , label:"Email" , name:"email"},
+    {id:8 , label:"Password" , name:"password"}
+]
+
 
 const NuevoUser = () => {
     const dispatch = useDispatch();
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, setValue, watch, formState: { errors } } = useForm();
     
     const onSubmit = (data) =>{  
         dispatch(postUserThunk(data));
@@ -21,66 +35,30 @@ const NuevoUser = () => {
         }, 500)
     }
 
+    setValue("apellido" , "");
+    setValue("nombre" , "");
+    setValue("fechaNacimiento" , "");
+    setValue("dni" , "");
+    setValue("edad" , "");
+    setValue("nacionalidad" , "");
+    setValue("email" , "");
+    setValue("password" , "");
+
     return(
         <div className="nuevoUserContainer">
             <h3>Nuevo User Work</h3>
             <form onSubmit={handleSubmit(onSubmit)}>
-                
-                <div>
-                    <label>
-                        Apellido
-                    </label>
-                    <input placeholder="Ingresar Apellido" name="apellido" {...register("apellido")} required={true}/>
-                </div>
+            {
+                    inputs.map(input=>{
+                        return(
+                            <div key={input.id}>
+                                <label>{input.label}</label>
+                                <Inputs key={input.id} placeholder={`Ingresar ${input.label}`} name={input.name} register={register} required/>
+                            </div>
+                        )
+                    })
+                }
 
-                <div>
-                    <label>
-                        Nombre
-                    </label>
-                    <input placeholder="Ingresar Nombre" name="nombre" {...register("nombre")} required={true}/>
-                </div>
-
-                <div>
-                    <label>
-                        Fecha Nac.
-                    </label>
-                    <input placeholder="Ingresar Fecha Nacimiento" name="fechaNacimiento" {...register("fechaNacimiento")} required={true}/>
-                </div>
-                
-                <div>
-                    <label>
-                        Dni
-                    </label>
-                    <input placeholder="Ingresar Dni" name="dni" {...register("dni")} required={true}/>
-                </div>
-
-                <div>
-                    <label>
-                        Edad
-                    </label>
-                    <input placeholder="Ingresar Edad" name="edad" {...register("edad")} required={true}/>
-                </div>
-                
-                <div>
-                    <label>
-                        Nacionalidad
-                    </label>
-                    <input placeholder="Ingresar Nacionalidad" name="nacionalidad" {...register("nacionalidad")} required={true}/>
-                </div>
-
-                <div>
-                    <label>
-                        Email
-                    </label>
-                    <input placeholder="Ingresar Email" name="email" {...register("email")} required={true}/>
-                </div>
-
-                <div>
-                    <label>
-                        Password
-                    </label>
-                    <input placeholder="Ingresar Password" name="password" {...register("password")} required={true}/>
-                </div>
 
                 <div>
                     <button className="btnAgregar" type="submit">
